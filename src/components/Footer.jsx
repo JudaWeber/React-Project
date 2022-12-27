@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 
 const Footer = () => {
+  console.log(3 === "3");
   return (
     <Fragment>
       {/* <div className="footer-wrapper container-fluid">
