@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import validate from "validation/validation";
 import registerschema from "validation/register.validation";
+import Footer from "components/Footer";
 
 const RegisterPage = () => {
   const history = useHistory();
@@ -239,6 +240,7 @@ const RegisterPage = () => {
           Register
         </button>
       </div>
+      <Footer />
     </Fragment>
   );
 };

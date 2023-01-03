@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { bizUserInfoActions } from "store/bizUserInfo";
 import bizRegisterSchema from "validation/bizRegister.validation";
 import useAutoLogin from "hooks/useAutoLogin";
+import Footer from "components/Footer";
 
 const BizRegisterPage = () => {
   const dispatch = useDispatch();
@@ -287,6 +288,7 @@ const BizRegisterPage = () => {
           Next
         </button>
       </div>
+      <Footer />
     </Fragment>
   );
 };

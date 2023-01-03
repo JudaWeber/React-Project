@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import useAutoLogin from "hooks/useAutoLogin";
 import cardSchema from "validation/card.validation";
 import { toast } from "react-toastify";
+import Footer from "components/Footer";
 
 const BizRegFormPage = () => {
   const history = useHistory();
@@ -241,6 +242,7 @@ const BizRegFormPage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </Fragment>
   );
 };

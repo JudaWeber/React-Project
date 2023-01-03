@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 
 const Background = () => {
   return (
-    <div className="videoContainer">
-      <img className="my-video-100" src={image} autoPlay loop muted />
+    <div className="backgroundContainer">
+      <img className="my-video-100" src={image} alt="background photo" />
     </div>
   );
 };

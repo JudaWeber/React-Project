@@ -16,6 +16,7 @@ import NotFoundPage from "pages/NotFoundPage";
 import BizRegFormPage from "pages/BizRegFormPage";
 import BizGuardRoute from "components/BizGuardRoute";
 import Background from "components/Background";
+import CardPage from "pages/CardPage";
 
 const App = () => {
   const autoLoginFunction = useAutoLogin();
@@ -51,6 +52,10 @@ const App = () => {
           <BizGuardRoute
             path={"/createacard"}
             component={CreateACardPage}
+          ></BizGuardRoute>
+          <BizGuardRoute
+            path={"/cardpage/:id"}
+            component={CardPage}
           ></BizGuardRoute>
           <Route path={"/bizform"} component={BizRegFormPage}></Route>
           <Route path="*" component={NotFoundPage}></Route>

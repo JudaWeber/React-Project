@@ -2,9 +2,10 @@ import axios from "axios";
 import { Fragment, useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation, useHistory, Link } from "react-router-dom";
 import cardSchema from "validation/card.validation";
 import validate from "validation/validation";
+import Footer from "components/Footer";
 
 const MyCards = () => {
   const location = useLocation();
@@ -34,17 +35,34 @@ const MyCards = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  // useEffect(() => {
+  //   (async () => {
+  //     let { data } = await axios.get("/cards/my-cards");
+  //     if (data) {
+  //       setArrForFilter(data);
+  //       setCardArr(data);
+  //     }
+  //     let qParams = new URLSearchParams(location.search);
+  //     history.push(`/mycards?${qParams.toString()}`);
+  //   })();
+  // }, []);
+
   useEffect(() => {
     (async () => {
-      let { data } = await axios.get("/cards/my-cards");
-      if (data) {
-        setArrForFilter(data);
-        setCardArr(data);
+      try {
+        let { data } = await axios.get("/cards/my-cards");
+        if (data) {
+          setArrForFilter(data);
+          setCardArr(data);
+        }
+        let qParams = new URLSearchParams(location.search);
+        history.push(`/mycards?${qParams.toString()}`);
+      } catch (error) {
+        console.log(error);
       }
-      let qParams = new URLSearchParams(location.search);
-      history.push(`/mycards?${qParams.toString()}`);
     })();
   }, []);
+
   const handleDeleteClick = async (ev) => {
     try {
       let deleted = await axios.delete(`/cards/${ev.target.id}`);
@@ -231,9 +249,9 @@ const MyCards = () => {
         </button>
       </div>
       <div className="container-fluid">
-        <div className="row row-cols-1 row-cols-md-3 g-4 ">
+        <div className="row row-cols-1 row-cols-md-3 g-4">
           {cardArr.map((item, index) => (
-            <div className="col-12 col-md-6 col-lg-4" key={"card" + index}>
+            <div className="col-md-6 col-sm-6 col-lg-4" key={"card" + index}>
               <div className="card h-100">
                 <img
                   src={item.image.url}
@@ -243,11 +261,11 @@ const MyCards = () => {
                 <div className="card-body">
                   <h5 className="card-title">{item.title}</h5>
                   <p className="card-text">{item.description}</p>
-                  <div className="card-body d-flex justify-content-evenly">
+                  <div className="card-buttons d-flex justify-content-evenly">
                     <button
                       id={item._id}
                       type="button"
-                      className="btn btn-info btn-lg"
+                      className="btn btn-info"
                       onClick={handleEditClick}
                     >
                       <i className="bi bi-pencil"></i>
@@ -256,12 +274,21 @@ const MyCards = () => {
                     <button
                       id={item._id}
                       type="button"
-                      className="btn btn-danger btn-lg"
+                      className="btn btn-danger"
                       onClick={handleDeleteClick}
                     >
                       <i className="bi bi-trash"></i>
                       Delete
                     </button>
+                    <Link
+                      to={`/cardpage/${item._id}`}
+                      id={item._id}
+                      type="button"
+                      className="btn btn-success"
+                    >
+                      <i className="bi bi-binoculars"></i>
+                      View
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -427,6 +454,7 @@ const MyCards = () => {
           </Modal.Footer>
         </Modal>
       </>
+      <Footer />
     </Fragment>
   );
 };

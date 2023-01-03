@@ -5,6 +5,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import useAutoLogin from "hooks/useAutoLogin";
 import cardSchema from "validation/card.validation";
+import Footer from "components/Footer";
 
 const CreateACardPage = () => {
   const history = useHistory();
@@ -33,7 +34,7 @@ const CreateACardPage = () => {
       setBusinessInfo(newBusinessInput);
     }
   };
-  const handleRegisterClick = async () => {
+  const handleCreateACardClick = async () => {
     const { error } = validate(businessInput, cardSchema);
     if (error) {
       let newBusinessInput = {
@@ -59,7 +60,7 @@ const CreateACardPage = () => {
       return;
     }
     try {
-      let createCardAxios = await axios.post("/cards/", {
+      let { data } = await axios.post("/cards/", {
         title: businessInput.title,
         subTitle: businessInput.subTitle,
         description: businessInput.description,
@@ -67,8 +68,9 @@ const CreateACardPage = () => {
         phone: businessInput.phone,
         url: businessInput.url,
       });
-      if (createCardAxios) {
-        console.log(createCardAxios);
+      if (data) {
+        console.log(data);
+        history.push(`cardpage/${data._id}`);
       }
     } catch (err) {
       console.log(err);
@@ -215,13 +217,14 @@ const CreateACardPage = () => {
             <button
               type="submit"
               className="btn btn-success"
-              onClick={handleRegisterClick}
+              onClick={handleCreateACardClick}
             >
               Create Card
             </button>
           </div>
         </div>
       </div>
+      <Footer />
     </Fragment>
   );
 };

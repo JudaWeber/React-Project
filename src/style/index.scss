@@ -16,6 +16,14 @@ img {
   width: 20% !important;
 }
 
+h2 {
+  color: white;
+  font-size: larger;
+}
+p {
+  color: whitesmoke;
+  font-size: large;
+}
 .my-video-100 {
   object-fit: cover;
   width: 100%;
@@ -31,9 +39,9 @@ img {
 }
 .my-navbar {
   font-weight: 900;
-  position: fixed;
-  top: 0px;
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0.5rem;
 }
 .my-toggler {
   background-color: #378de5;
@@ -74,7 +82,6 @@ img {
 .HomeParegraph {
   font-size: 2rem;
   font-weight: 600;
-  padding-bottom: 50rem;
 }
 .HomeH1 {
   font-size: 3rem;
@@ -108,14 +115,6 @@ img {
     top: 1px;
   }
 }
-.footer-wrapper {
-  width: 80%;
-  background-color: #002a30;
-  color: white;
-  position: relative;
-  bottom: 3rem;
-  border-radius: 5rem;
-}
 .my-row {
   padding: 0.7rem;
 }
@@ -133,4 +132,41 @@ img {
   color: #00857c;
   font-weight: 700;
   font-size: larger;
+  &:hover {
+    color: #6aa3a0;
+  }
+}
+.all-wrap {
+  position: relative;
+  height: 100vh;
+}
+.footer-wrapper {
+  width: 80%;
+  background-color: #002a30;
+  color: white;
+  position: absolute;
+  bottom: 1rem;
+  border-radius: 5rem;
+}
+img {
+  transition: transform 0.2s;
+  margin: 0 auto;
+  border: 1px solid black;
+  overflow: hidden;
+}
+img:hover {
+  transform: scale(1.1);
+}
+.about-box {
+  background-color: #002a30;
+  border-radius: 1rem;
+  opacity: 0.9;
+}
+
+.home-card-area {
+  background-color: rgba(0, 0, 0, 0.8);
+  left: 0;
+  position: relative;
+  height: 50vh;
+  border-radius: 2rem;
 }

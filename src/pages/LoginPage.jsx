@@ -6,6 +6,7 @@ import loginSchema from "validation/login.validation";
 import { useHistory } from "react-router-dom";
 import useAutoLogin from "hooks/useAutoLogin";
 import { useSelector } from "react-redux";
+import Footer from "components/Footer";
 
 const LoginPage = () => {
   const history = useHistory();
@@ -159,6 +160,7 @@ const LoginPage = () => {
           Login
         </button>
       </div>
+      <Footer />
     </Fragment>
   );
 };
