@@ -123,7 +123,6 @@ const MyCards = () => {
       };
       for (let errorItem of error.details) {
         if (errorItem.message.includes("pattern")) {
-          console.log(errorItem.message);
           errorItem.message =
             "Please insert a valid image link(the url needs to end with .jpg or .png etc...)";
         }

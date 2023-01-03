@@ -5,7 +5,6 @@ import validate from "validation/validation";
 import loginSchema from "validation/login.validation";
 import { useHistory } from "react-router-dom";
 import useAutoLogin from "hooks/useAutoLogin";
-import { useSelector } from "react-redux";
 import Footer from "components/Footer";
 
 const LoginPage = () => {
@@ -67,16 +66,6 @@ const LoginPage = () => {
       if (data) {
         localStorage.setItem("token", data.token);
         autoLoginFunction(data.token);
-        // toast(`Welocome to my website`, {
-        //   position: "top-right",
-        //   autoClose: 5000,
-        //   hideProgressBar: false,
-        //   closeOnClick: true,
-        //   pauseOnHover: true,
-        //   draggable: true,
-        //   progress: undefined,
-        //   theme: "light",
-        // });
         history.push("/home");
       }
     } catch (err) {

@@ -1,9 +1,6 @@
 import Footer from "components/Footer";
 import { Fragment } from "react";
 import { useSelector } from "react-redux";
-import image1 from "../assets/images/biz-card.jpg";
-import image2 from "../assets/images/biz-card-2.jpg";
-import image3 from "../assets/images/biz-card-3.jpg";
 
 const HomePage = () => {
   const loggedIn = useSelector((state) => state.auth.loggedIn);

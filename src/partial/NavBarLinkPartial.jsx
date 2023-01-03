@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import Navbar from "react-bootstrap/Navbar";
 
 const NavBarLinkPartial = ({ label, link }) => {
   return (

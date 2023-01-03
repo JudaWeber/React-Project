@@ -1,10 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import getUserInfo from "services/getUserInfo";
 import { authActions } from "store/auth";
 import jwt_decode from "jwt-decode";
 
 const useAutoLogin = () => {
-  const loggedIn = useSelector((state) => state.auth.loggedIn);
   const dispatch = useDispatch();
   const autoLoginFunction = async (token) => {
     try {

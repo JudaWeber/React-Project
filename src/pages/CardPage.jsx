@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Fragment } from "react";
 import Footer from "components/Footer";
-import { useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 const CardPage = () => {
@@ -14,7 +13,6 @@ const CardPage = () => {
       try {
         let { data } = await axios.get(`/cards/card/${id}`);
         setBizCard(data);
-        console.log(data);
       } catch (err) {
         console.log(err);
       }

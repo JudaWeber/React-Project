@@ -1,4 +1,3 @@
-import NavBarLinkPartial from "partial/NavBarLinkPartial";
 import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -49,7 +48,6 @@ let authLinks = {
 };
 const NavBar = () => {
   const loggedIn = useSelector((state) => state.auth.loggedIn);
-  const userInfo = useSelector((state) => state.auth.userInfo);
   const dataFromToken = useSelector((state) => state.auth.userData);
 
   const history = useHistory();
@@ -65,9 +63,9 @@ const NavBar = () => {
     <Fragment>
       <nav className="navbar navbar-expand-lg my-navbar sticky-top">
         <div className="container-fluid">
-          <a className="navbar-brand ms-5 my-logo-font" href="#">
+          <div className="navbar-brand ms-5 my-logo-font" href="#">
             BizDream
-          </a>
+          </div>
           <button
             className="navbar-toggler"
             type="button"

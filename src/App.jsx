@@ -31,7 +31,7 @@ const App = () => {
     })();
   }, []);
   useEffect(() => {
-    if (loggedIn === true && tryingToLogin == true) {
+    if (loggedIn === true && tryingToLogin === true) {
       setTryingToLogin(false);
     }
   }, [loggedIn]);

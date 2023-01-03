@@ -2,15 +2,11 @@ import { Fragment, useState } from "react";
 import { useHistory } from "react-router-dom";
 import validate from "validation/validation";
 import axios from "axios";
-import { useSelector } from "react-redux";
-import useAutoLogin from "hooks/useAutoLogin";
 import cardSchema from "validation/card.validation";
 import Footer from "components/Footer";
 
 const CreateACardPage = () => {
   const history = useHistory();
-  const autoLoginFunction = useAutoLogin();
-  const bizUserInfo = useSelector((state) => state.bizUserInfo.bizUserInfo);
   const [businessInput, setBusinessInfo] = useState({
     title: "",
     subTitle: "",
@@ -47,7 +43,6 @@ const CreateACardPage = () => {
       };
       for (let errorItem of error.details) {
         if (errorItem.message.includes("pattern")) {
-          console.log(errorItem.message);
           errorItem.message =
             "Please insert a valid image link(the url needs to end with .jpg or .png etc...)";
         }

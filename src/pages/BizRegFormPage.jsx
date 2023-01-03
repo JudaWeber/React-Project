@@ -9,7 +9,6 @@ import { toast } from "react-toastify";
 import Footer from "components/Footer";
 
 const BizRegFormPage = () => {
-  const history = useHistory();
   const autoLoginFunction = useAutoLogin();
   const bizUserInfo = useSelector((state) => state.bizUserInfo.bizUserInfo);
   const [businessInput, setBusinessInfo] = useState({
@@ -49,7 +48,6 @@ const BizRegFormPage = () => {
       };
       for (let errorItem of error.details) {
         if (errorItem.message.includes("pattern")) {
-          console.log(errorItem.message);
           errorItem.message =
             "Please insert a valid image link(the url needs to end with .jpg or .png etc...)";
         }

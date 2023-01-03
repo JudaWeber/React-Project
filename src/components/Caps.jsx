@@ -6,7 +6,6 @@ const Caps = ({ originalString }) => {
     arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
   }
   let newString = arr.join(" ");
-  console.log(newString);
 
   return <h1>{newString}</h1>;
 };
